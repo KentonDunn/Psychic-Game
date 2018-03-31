@@ -1,6 +1,10 @@
 console.log("This is connected")
 
-
+var userguess = "good luck";
+var computerGuess = "bad luck";
+var wins = 0;
+var losses = 0;
+var guessesLeft = 9;
 
 // Create Array of Letters (var options = ["A", . . . ]) for computer to choose from; I'm sure there's a faster way to do this, but I'm going to leave it like this.
     
@@ -16,22 +20,38 @@ computerChoice = function(){
  //call the function to get the computer's guess 
 computerChoice()
 
+//create a function to run the game
 
+runTheGame = function(){
+    console.log("Wait For Me");
+}
+
+runTheGame()
 
  //this code captures the user's guess
  //notes from the youtube video on Rock Paper Scissors: "what we're doing is that a user presses a key.  after the key is released an onkeyup event happens
     //the keycode that is attached to the key that was just released.  take that character and turn it into a string"
 
  document.onkeyup = function() {  
+//userChoice = function(){
     var userguess = String.fromCharCode(event.keyCode).toLowerCase();
+    //var userguess= keypress.key;
+    
     console.log(userguess);
     console.log("User's Guess Above");
 }
 
-var wins = 0;
-var losses = 0;
+//userChoice()
 
 
+if (userguess == computerGuess){
+    wins++;
+    alert("yay!");
+} else {
+    alert("too bad");
+    guessesLeft--;
+    console.log(guessesLeft);
+}
    
     console.log("3rd function"); 
     
