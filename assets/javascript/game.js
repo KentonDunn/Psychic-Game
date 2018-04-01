@@ -17,7 +17,8 @@ var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 */
 
 //Computer chooses a random letter from the array
-var computerChoice = function () {
+var computerChoice = function () 
+{
     computerGuess = options[Math.floor(Math.random() * options.length)];
     console.log("Computer's Guess: ", computerGuess);
 
@@ -25,6 +26,12 @@ var computerChoice = function () {
 
 //call the function to get the computer's guess 
 //computerChoice()
+
+//create a function to add the user's guess to the guessesSoFar array;
+var addToArray = function ()
+{
+    guessesSoFar.push(userguess);
+}
 
 //create a function to run the game
 
@@ -47,7 +54,10 @@ var runTheGame = function ()
         console.log("User's Guess: ", userguess);
 
 
-        //userChoice()
+        var addToArray = function ()
+        {
+            guessesSoFar.push(userguess);
+        }
 
 
         if (userguess == computerGuess) 
@@ -63,7 +73,8 @@ var runTheGame = function ()
             console.log(userguess + " " + computerGuess);
             guessesLeft--;
             document.getElementById("guessesLeft").innerHTML=guessesLeft;
-            document.getElementById("guessesSoFar").innerHTML=guessesSoFar[];
+            addToArray();
+            document.getElementById("guessesSoFar").innerHTML=guessesSoFar;     
             alert("You guessed wrong!");
             console.log(guessesLeft);
         }
