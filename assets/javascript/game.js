@@ -20,6 +20,8 @@ var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 var computerChoice = function () 
 {
     computerGuess = options[Math.floor(Math.random() * options.length)];
+    guessesLeft = 9;
+    guessesSoFar = [];
     console.log("Computer's Guess: ", computerGuess);
 
 }
@@ -81,18 +83,37 @@ var runTheGame = function ()
     
 
         //when guesses left = 0, losses++
-        if (guessesLeft == 0)
+        if (guessesLeft === 0)
         {
-            computerChoice();
-            losses++;
-            guessesLeft = 9;
-            guessesSoFar = [];
             document.getElementById("guessesLeft").innerHTML=guessesLeft;
+            alert("Sorry, That was your last guess. I was thinking of " + computerGuess);
+            losses++;
             document.getElementById("lossTotal").innerHTML=losses;
-            alert("Sorry.  Try again!")
-            //computerChoice();
+            guessesSoFar = [];
+            document.getElementById("guessesLeft").innerHTML=guessesSoFar;
+        
+            var playAgain = confirm("Want to try again?");
+                if (playAgain == true)
+                {
+                    computerChoice();
+                    guessesSoFar = [];
+                    guessesLeft = 9;
 
-        }
+                }
+                else {
+                    alert("Thanks for playing!");
+                }
+            //runTheGame();
+            //guessesLeft = 9;   
+            //computerChoice();
+         }   
+        //alert("Want to try again?");
+        //computerChoice();
+        //document.onkeyup(computerChoice());
+        //runTheGame();
+        //guessesLeft = 9;   
+        //computerChoice();
+        
     }
 
 }
