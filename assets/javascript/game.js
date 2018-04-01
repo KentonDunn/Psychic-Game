@@ -62,20 +62,26 @@ var runTheGame = function ()
         {
             console.log(userguess + " " + computerGuess);
             guessesLeft--;
-            alert("You chose wrong!");
+            document.getElementById("guessesLeft").innerHTML=guessesLeft;
+            document.getElementById("guessesSoFar").innerHTML=guessesSoFar[];
+            alert("You guessed wrong!");
             console.log(guessesLeft);
         }
-    }
+    
 
-    //when guesses left = 0, losses++
-    if (guessesLeft == 0)
-    {
-        losses++;
-        guessesLeft = 9;
-        guessesSoFar = [];
-        document.getElementById("guessesLeft").innerHTML=losses;
-        computerChoice();
+        //when guesses left = 0, losses++
+        if (guessesLeft == 0)
+        {
+            computerChoice();
+            losses++;
+            guessesLeft = 9;
+            guessesSoFar = [];
+            document.getElementById("guessesLeft").innerHTML=guessesLeft;
+            document.getElementById("lossTotal").innerHTML=losses;
+            alert("Sorry.  Try again!")
+            //computerChoice();
 
+        }
     }
 
 }
